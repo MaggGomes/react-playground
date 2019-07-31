@@ -5,7 +5,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                sh 'echo 1'
+                sh 'yarn install'
             }
 
             
@@ -14,14 +14,7 @@ pipeline {
         stage ('Testing Stage') {
 
             steps {
-                 sh 'echo 5'
-            }
-        }
-
-
-        stage ('Deployment Stage') {
-            steps {
-                 sh 'echo 3'
+                 sh 'yarn test'
             }
         }
     }
