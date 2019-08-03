@@ -1,22 +1,15 @@
 pipeline {
-    agent any
-
-    stages {
-        stage ('Compile Stage') {
-
-            steps {
-                sh 'yarn install'
-            }
-
-            
+    agent {
+        docker {
+            image 'node:6-alpine' 
+            args '-p 3000:3000' 
         }
-
-        stage ('Testing Stage') {
-
+    }
+    stages {
+        stage('Build') { 
             steps {
-                 sh 'yarn test'
+                sh 'yarn install' 
             }
         }
     }
 }
-
