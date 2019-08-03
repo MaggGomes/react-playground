@@ -10,8 +10,6 @@ node{
     }
 
     stage ('Compile Stage') {
-            steps {
-                sh 'yarn install'
-            }     
+        sh 'yarn install'    
     }
 }
