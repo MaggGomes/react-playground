@@ -8,4 +8,10 @@ node{
     stage('SCM checkout'){
         git credentialsId: gitCredentials, url: gitUrl, branch: gitBranch
     }
+
+    stage ('Compile Stage') {
+            steps {
+                sh 'yarn install'
+            }     
+    }
 }
