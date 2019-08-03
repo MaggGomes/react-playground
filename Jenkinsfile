@@ -1,4 +1,10 @@
-/*pipeline {
+String podLabel = 'react-playground'
+
+String gitUrl = 'https://github.com/MaggGomes/react-playground.git'
+String gitCredentials = 'react-creds'
+String gitBranch = 'master'
+
+pipeline {
     agent {
         docker {
             image 'node:6-alpine' 
@@ -6,13 +12,14 @@
         }
     }
     stages {
-        stage ('Compile Stage') {
+        stage('SCM checkout'){
+            git credentialsId: gitCredentials, url: gitUrl, branch: gitBranch
+        }
 
+        stage ('Compile Stage') {
             steps {
                 sh 'yarn install'
-            }
-
-            
+            }     
         }
 
         stage ('Testing Stage') {
@@ -22,13 +29,9 @@
             }
         }
     }
-}*/
+}
 
-String podLabel = 'react-playground'
 
-String gitUrl = 'https://github.com/MaggGomes/react-playground.git'
-String gitCredentials = 'react-creds'
-String gitBranch = 'master'
 
 /*node{
     stage('SCM checkout'){
@@ -37,7 +40,7 @@ String gitBranch = 'master'
 }
 */
 
-podTemplate(containers: [
+/*podTemplate(containers: [
     containerTemplate(name: 'nodejs', image: 'mhart/alpine-node:8', ttyEnabled: true)
   ]) {
 
