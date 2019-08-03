@@ -4,7 +4,7 @@ String gitUrl = 'https://github.com/MaggGomes/react-playground.git'
 String gitCredentials = 'react-creds'
 String gitBranch = 'master'
 
-pipeline {
+/*pipeline {
     agent {
         docker {
             image 'node:6-alpine' 
@@ -29,16 +29,16 @@ pipeline {
             }
         }
     }
-}
+}*/
 
 
 
-/*node{
+node{
     stage('SCM checkout'){
         git credentialsId: gitCredentials, url: gitUrl, branch: gitBranch
     }
 }
-*/
+
 
 /*podTemplate(containers: [
     containerTemplate(name: 'nodejs', image: 'mhart/alpine-node:8', ttyEnabled: true)
