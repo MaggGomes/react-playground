@@ -13,7 +13,9 @@ pipeline {
     }
     stages {
         stage('SCM checkout'){
-            git credentialsId: gitCredentials, url: gitUrl, branch: gitBranch
+            steps {
+                git credentialsId: gitCredentials, url: gitUrl, branch: gitBranch
+            }
         }
 
         stage ('Compile Stage') {
