@@ -25,7 +25,6 @@ pipeline {
         }
 
         stage ('Testing Stage') {
-
             steps {
                  sh 'yarn test'
             }
